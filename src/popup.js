@@ -54,9 +54,7 @@ function getCurrentTabUrl(callback) {
  */
 function changeDescriptionTemplate(template) {
   //var script = 'document.body.style.backgroundColor="' + color + '";';
-  var script = 'console.log("Selected: ' + template + '");';
-  script += "console.log(document.getElementById('merge_request_description'));";
-  script += "console.log($('#merge_request_description').val());"
+  var script = 'console.log("selected: ' + template + '");';
 
   // See https://developer.chrome.com/extensions/tabs#method-executeScript.
   // chrome.tabs.executeScript allows us to programmatically inject JavaScript

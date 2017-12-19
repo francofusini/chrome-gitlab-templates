@@ -9,10 +9,17 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+
+  "content_scripts": [
+    {
+      "matches": ["https://gitlab.twsfi.local/*/*/merge_requests/*"],
+      "css": ["mystyles.css"],
+      "js": ["jquery.js", "myscript.js"]
+    }
+  ],
+
   "permissions": [
     "activeTab",
     "storage"
-  ],
-  
-  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+  ]
 }
