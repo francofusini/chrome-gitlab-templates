@@ -1,25 +1,29 @@
 {
   "manifest_version": 2,
 
-  "name": "GitLab Description Templates as Forms",
-  "description": "This extension allows the user to populate GitLab description templates as forms.",
+  "name": "GitLab description templates",
+  "description": "Description templates allow you to define context-specific templates for issue and merge request description fields for your project",
   "version": "0.1",
 
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+  "background": { "scripts": ["background.js"] },
+
+  "page_action": {
+    "default_title": "Select Template",
+    "default_icon": "gitlab-logo.png",
+    "default_popup": "select-template-popup.html"
   },
 
   "content_scripts": [
     {
       "matches": ["https://gitlab.twsfi.local/*/*/merge_requests/*"],
-      "css": ["mystyles.css"],
-      "js": ["jquery.js", "myscript.js"]
+      "js": ["jquery.js", "merge-request-content-script.js"]
     }
   ],
 
   "permissions": [
+    "tabs",
     "activeTab",
-    "storage"
+    "storage",
+    "https://gitlab.twsfi.local/*"
   ]
 }
